@@ -3,15 +3,15 @@ spring:
     name: config-server
   profiles:
     active:
-      - git
+      - native
+#      - git
   cloud:
     config:
       server:
-#        native:
-#          search-locations: classpath:/config
+        native:
+          search-locations: file:/d:/hr-config
         git:
           uri: https://github.com/AbdulrahmanQerawani/hr-config.git
-
 server:
   port: 8071
 #
