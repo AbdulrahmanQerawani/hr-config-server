@@ -1,27 +1,33 @@
+server:
+  port: 8071
 spring:
   application:
     name: config-server
   profiles:
     active:
-#      - native
-      - git
+      - native
+#      - vault
   cloud:
     config:
       server:
-        native:
-          search-locations: file:/d:/hr-config
         git:
           uri: https://github.com/AbdulrahmanQerawani/hr-config.git
-server:
-  port: 8071
-#
-#encrypt:
-#  key: fje83Ki8403Iod87dne7Yjsl3THueh48jfuO9j4U2hf64Lo
-
+        vault:
+          kv-Version: 2
+          port: 8200
+          host: 127.0.0.1
+          token: 'hvs.DkQlLevgSZwgbmPiGwdPbrJt'
+encrypt:
+  key: iJzP4VLhuLfT4iEr9Ay8GPV@@ku!i
 
 #Enable all Spring Boot Actuator endpoints.
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: '*'
+        exclude: env,beans
+    enabled-by-default: true
+
+
+
