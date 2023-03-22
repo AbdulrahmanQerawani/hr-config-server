@@ -10,7 +10,6 @@ eureka:
             defaultZone: http://eurekaserver:8070/eureka/
 spring:
   cloud:
-    loadbalancer.ribbon.enabled: false
     gateway:
       routes:
         - id: organization-service
@@ -53,3 +52,6 @@ management:
       exposure:
         include: '*'
         exclude: env,beans
+    
+
+
